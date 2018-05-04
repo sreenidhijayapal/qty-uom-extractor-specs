@@ -3,6 +3,7 @@ package com.omnius.challenges.extractors.qtyuom;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.omnius.challenges.extractors.qtyuom.QtyUomExtractor;
 import com.omnius.challenges.extractors.qtyuom.utils.LeftMostUOMExtractor;
 import com.omnius.challenges.extractors.qtyuom.utils.Pair;
 
@@ -13,7 +14,7 @@ import com.omnius.challenges.extractors.qtyuom.utils.Pair;
  * @author <a href="mailto:damiano@omnius.com">Damiano Giampaoli</a>
  * @since 25 Jan. 2018
  */
-public class EnhancedHeuristicMatcherTest extends Assert{
+public class QtyUomExtractorTest extends Assert{
     
     @Test
     public void extract_whenUOMIstheSecondTokenAndQTYTheFirst() {
@@ -207,10 +208,11 @@ public class EnhancedHeuristicMatcherTest extends Assert{
     }
     
     @Test
-    public void computeAccuracy_checkIsHigherThan40Percent() {
+    public void computeAccuracy_checkIsHigherThan20Percent() {
         // Load provided CSV
         // For each line in the CSV run the LeftMostUOMExtractor
         // calculate how many corrected guess your algorithm compute
-        // Assert the accuracy higher than 40%
+        // Assert the accuracy higher than 20%
     }
 }
+
