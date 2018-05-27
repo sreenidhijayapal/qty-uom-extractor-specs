@@ -53,4 +53,30 @@ public interface QtyUomExtractor {
      * @return @see {@link #extract(String)}
      */
     public Pair<Double, String> extractAsDouble(String articleDescription);
+    /**
+     * load and read file qty_uom_challenge_dataset_clean.csv
+     */
+    public class readFile{
+        File x = new File("/*filename*/");
+            if(x.exists()){
+                System.out.println(x.getName() + "exists");
+            }
+            else{
+                System.out.println("The file does not exist");
+            }
+
+        public static void main(String[] args){
+         String csvFile="";
+         try{
+             csvFile = args[0];
+         }
+         catch(Exception e) {
+             System.out.println("Please provide the file name");
+             System.exit(0);
+         }
+         
+         String line = "";
+         String csvSplitBy = ",";
+        }
+    }
 }
