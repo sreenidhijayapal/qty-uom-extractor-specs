@@ -15,6 +15,16 @@ import com.omnius.challenges.extractors.qtyuom.utils.Pair;
  * @since 25 Jan. 2018
  */
 public class QtyUomExtractorTest extends Assert{
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+    }
+
+    @Override
+    protected void tearDown() throws Exception {
+        super.tearDown();
+    }
     
     @Test
     public void extract_whenUOMIstheSecondTokenAndQTYTheFirst() {
@@ -213,6 +223,45 @@ public class QtyUomExtractorTest extends Assert{
         // For each line in the CSV run the LeftMostUOMExtractor
         // calculate how many corrected guess your algorithm compute
         // Assert the accuracy higher than 20%
+    }
+
+    /**
+     * Test of extract method, of class QtyUomExtractor.
+     */
+    public void testExtract() {
+        System.out.println("extract");
+        String articleDescription = "";
+        QtyUomExtractor instance = new QtyUomExtractorImpl();
+        Pair<String, String> expResult = null;
+        Pair<String, String> result = instance.extract(articleDescription);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of extractAsDouble method, of class QtyUomExtractor.
+     */
+    public void testExtractAsDouble() {
+        System.out.println("extractAsDouble");
+        String articleDescription = "";
+        QtyUomExtractor instance = new QtyUomExtractorImpl();
+        Pair<Double, String> expResult = null;
+        Pair<Double, String> result = instance.extractAsDouble(articleDescription);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    public class QtyUomExtractorImpl implements QtyUomExtractor {
+
+        public Pair<String, String> extract(String articleDescription) {
+            return null;
+        }
+
+        public Pair<Double, String> extractAsDouble(String articleDescription) {
+            return null;
+        }
     }
 }
 
