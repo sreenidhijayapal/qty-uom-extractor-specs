@@ -46,6 +46,15 @@ public interface QtyUomExtractor {
      */
     public Pair<String, String> extract(String articleDescription);
     
+        Pattern pattern = Pattern.compile("^\\d+ \\s \\[a-z] \\d+\\[Stk] \\d+\\[kg]\\[mm]", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher("\\d+\\[Stk]");
+        while(matcher.find()) {
+            String QTY = matcher.group("QTY");
+            String UOM = matcher.group("UOM");
+            
+        }
+
+    
     /**
      * Same as {@link #extract(String)} but returns the QTY as Double instead of String
      * 
