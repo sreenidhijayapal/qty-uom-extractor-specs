@@ -45,16 +45,7 @@ public interface QtyUomExtractor {
      * @return The QTY and UOM representing the dimension of an order for a certain article in a warehouse from a Client.
      */
     public Pair<String, String> extract(String articleDescription);
-    
-        Pattern pattern = Pattern.compile("^\\d+ \\s \\[a-z] \\d+\\[Stk] \\d+\\[kg]\\[mm]", Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher("\\d+\\[Stk]");
-        while(matcher.find()) {
-            String QTY = matcher.group("QTY");
-            String UOM = matcher.group("UOM");
-            
-        }
-
-    
+               
     /**
      * Same as {@link #extract(String)} but returns the QTY as Double instead of String
      * 
@@ -65,27 +56,33 @@ public interface QtyUomExtractor {
     /**
      * load and read file qty_uom_challenge_dataset_clean.csv
      */
-    public class readFile{
-        File x = new File("/*filename*/");
-            if(x.exists()){
-                System.out.println(x.getName() + "exists");
-            }
-            else{
-                System.out.println("The file does not exist");
-            }
+    public class QtyUomExtractor {
 
-        public static void main(String[] args){
-         String csvFile="";
-         try{
-             csvFile = args[0];
-         }
-         catch(Exception e) {
-             System.out.println("Please provide the file name");
-             System.exit(0);
-         }
-         
-         String line = "";
-         String csvSplitBy = ",";
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        String fileName = "qty_uom_challenge_dataset_clean.csv";
+        File file = new File(fileName);
+        try{
+           Scanner inputStream = new Scanner(file); 
+           while(inputStream.hasNext()){
+               String data = inputStream.next();
+               System.out.println(data + "##");
+           }
+        } catch (FileNotFoundException e){
+            e.printStackTrace();
         }
+    Pattern pattern = Pattern.compile("^\\d+ \\s \\[a-z] \\d+\\[Stk] \\d+\\[kg]\\[mm]", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher("\\d+\\[Stk]");
+        while(matcher.find()) {
+            String QTY = matcher.group("QTY");
+            String UOM = matcher.group("UOM");
+            
+        }    
+        
     }
+    
 }
+}
+
